@@ -72,7 +72,6 @@ def get_errors(x_vals):
 
 def plot_func():
     def plot_the_func(x,y, title):
-        # Налаштування координатної площини
         fig, ax = plt.subplots()
         ax.spines['left'].set_position('zero')
         ax.spines['bottom'].set_position('zero')
@@ -88,17 +87,14 @@ def plot_func():
         plt.title(title)
         plt.grid(True)
 
-    # Створення списку точок
     x = np.linspace(-math.pi, math.pi, 500)
     x2 = np.linspace(-math.pi, 3*math.pi, 500)
     x3 = np.linspace(-3*math.pi, math.pi, 500)
 
-    # Обчислення значень функції для кожної точки x
     y = [f(x_i) for x_i in x]
     y2 = [f(x_i) for x_i in x2]
     y3 = [f(x_i) for x_i in x3]
 
-    # Побудова графіків функції на різних проміжках
     plot_the_func(x,y,'Графік функції x^16*exp(-x^2/16) на проміжку [-π;π]')
     plot_the_func(x2,y2,'Графік функції x^16*exp(-x^2/16) на проміжку [-π;3π]')
     plot_the_func(x3,y3,'Графік функції x^16*exp(-x^2/16) на проміжку [-3π;π]')
