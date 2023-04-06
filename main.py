@@ -71,33 +71,24 @@ def get_errors(x_vals):
     return errors
 
 def plot_func():
-    def plot_the_func(x,y, title):
-        fig, ax = plt.subplots()
-        ax.spines['left'].set_position('zero')
-        ax.spines['bottom'].set_position('zero')
-        ax.spines['right'].set_color('none')
-        ax.spines['top'].set_color('none')
-        ax.xaxis.set_ticks_position('bottom')
-        ax.yaxis.set_ticks_position('left')
-        plt.axhline(y=0, color='k')
-        plt.axvline(x=0, color='k')
-        plt.plot(x, y)
-        plt.xlabel('x')
-        plt.ylabel('y')
-        plt.title(title)
-        plt.grid(True)
-
-    x = np.linspace(-math.pi, math.pi, 500)
-    x2 = np.linspace(-math.pi, 3*math.pi, 500)
-    x3 = np.linspace(-3*math.pi, math.pi, 500)
+    x = np.linspace(-3*math.pi, 3*math.pi, 500)
 
     y = [f(x_i) for x_i in x]
-    y2 = [f(x_i) for x_i in x2]
-    y3 = [f(x_i) for x_i in x3]
 
-    plot_the_func(x,y,'Графік функції x^16*exp(-x^2/16) на проміжку [-π;π]')
-    plot_the_func(x2,y2,'Графік функції x^16*exp(-x^2/16) на проміжку [-π;3π]')
-    plot_the_func(x3,y3,'Графік функції x^16*exp(-x^2/16) на проміжку [-3π;π]')
+    fig, ax = plt.subplots()
+    ax.spines['left'].set_position('zero')
+    ax.spines['bottom'].set_position('zero')
+    ax.spines['right'].set_color('none')
+    ax.spines['top'].set_color('none')
+    ax.xaxis.set_ticks_position('bottom')
+    ax.yaxis.set_ticks_position('left')
+    plt.axhline(y=0, color='k')
+    plt.axvline(x=0, color='k')
+    plt.plot(x, y, label='f(x)', color="red")
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.title('Графік функції x^16*exp(-x^2/16)')
+    plt.grid(True)
 
 
     # Функція a(k) в частотній області
@@ -127,6 +118,7 @@ def plot_func():
     plt.plot(x_vals, errors)
     plt.xlabel('x')
     plt.ylabel('Relative error')
+
 
     def fourier_series(x, n, k_max, a_coeffs, b_coeffs):
         series_sum = np.zeros_like(x)
